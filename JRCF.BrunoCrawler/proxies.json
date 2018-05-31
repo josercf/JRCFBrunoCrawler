@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {    
+    "PageProxy": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/crawler"
+      },
+      "backendUri": "https://brunocrawler.azurewebsites.net/api/Crawler",
+      "requestOverrides": {
+        "backend.request.method": "GET",
+        "backend.request.querystring.code": "b5JqLNRzYz/4caw87lA6GO0VhHVHoBgK1psbp8c0QLJ/9Hwa/M9YCQ=="
+      }
+    },
+    "ResponseProxy": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/process"
+      },
+      "backendUri": "https://brunocrawler.azurewebsites.net/api/ArticleTextCrawler",
+      "requestOverrides": {
+        "backend.request.method": "GET",
+        "backend.request.querystring.code": "dez8gZgpE3/lm4nSmJt/wvEw96qBfLnpCpYz9fWIQy1L9rr8j6aWmA=="
+      }
+    }
+  }
+}
